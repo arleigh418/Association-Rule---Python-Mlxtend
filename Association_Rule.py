@@ -58,7 +58,7 @@ frequent_itemsets.sort_values(by='support',ascending=False,inplace=True)
 
 association_rule = association_rules(frequent_itemsets,metric='confidence',min_threshold=0.01)	
 
-association_rule = association_rules(frequent_itemsets, metric="lift", min_threshold=0.01)
+# association_rule = association_rules(frequent_itemsets, metric="lift", min_threshold=0.01)
 print(association_rule)
 
 
