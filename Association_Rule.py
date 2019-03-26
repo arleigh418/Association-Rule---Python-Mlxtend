@@ -1,13 +1,11 @@
 
-import numpy as np
+
 import pandas as pd
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.feature_extraction.text import TfidfVectorizer
-import re 
+
 from mlxtend.preprocessing import TransactionEncoder
 from mlxtend.frequent_patterns import apriori
 from mlxtend.frequent_patterns import association_rules
-import jieba
+
 
 
 x = pd.read_csv('D:/ml-latest-small/tags.csv')
