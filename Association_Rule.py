@@ -54,12 +54,13 @@ df = pd.DataFrame(df_tf,columns=te.columns_)
 
 
 
-frequent_itemsets = apriori(df,min_support=0.5,use_colnames=True)	#if you use the less one dataset , you need to adjust the parameters for a result.
+frequent_itemsets = apriori(df,min_support=0.003,use_colnames=True)	
 print(frequent_itemsets)
 frequent_itemsets.sort_values(by='support',ascending=False,inplace=True)	
 
-association_rule = association_rules(frequent_itemsets,metric='confidence',min_threshold=1.2)	 #if you use the less one dataset , you need to adjust the parameters for a result.
-association_rule.sort_values(by='leverage',ascending=False,inplace=True)
-print(association_rule)    
+association_rule = association_rules(frequent_itemsets,metric='confidence',min_threshold=0.01)	
+print(association_rule)
+association_rule2 = association_rules(frequent_itemsets, metric="lift", min_threshold=0.01)
+print(association_rule2)
 
 
