@@ -48,19 +48,17 @@ print(all_comment)
 
 te = TransactionEncoder()	
 df_tf = te.fit(all_comment).transform(all_comment)
-# print(df_tf)
-# df_01 = df_tf.astype('int')			
-# df_name = te.inverse_transform(df_tf)		
+	
 df = pd.DataFrame(df_tf,columns=te.columns_)
-# print(df)
 
 
 
-frequent_itemsets = apriori(df,min_support=0.005,use_colnames=True)	
+
+frequent_itemsets = apriori(df,min_support=0.5,use_colnames=True)	#if you use the less one dataset , you need to adjust the parameters for a result.
 print(frequent_itemsets)
 frequent_itemsets.sort_values(by='support',ascending=False,inplace=True)	
 
-association_rule = association_rules(frequent_itemsets,metric='confidence',min_threshold=0.01)	
+association_rule = association_rules(frequent_itemsets,metric='confidence',min_threshold=1.2)	 #if you use the less one dataset , you need to adjust the parameters for a result.
 association_rule.sort_values(by='leverage',ascending=False,inplace=True)
 print(association_rule)    
 
